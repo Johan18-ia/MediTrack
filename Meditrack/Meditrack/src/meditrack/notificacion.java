@@ -14,7 +14,7 @@ public class notificacion {
 
     // Método para enviar notificación a un usuario
     public void enviarAUsuario(String usuario) {
-        // Aquí puedes implementar el envío real (email, push, etc.)
+       
         System.out.println("Notificación para " + usuario + ": " + mensaje + " (" + fechaHora + ")");
     }
 }
