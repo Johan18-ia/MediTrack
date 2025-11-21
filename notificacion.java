@@ -12,9 +12,7 @@ public class notificacion {
     public String getMensaje(){return mensaje;}
     public String getFechaHora(){return fechaHora;}
 
-    // Método para enviar notificación a un usuario
     public void enviarAUsuario(String usuario) {
-       
         System.out.println("Notificación para " + usuario + ": " + mensaje + " (" + fechaHora + ")");
     }
 }

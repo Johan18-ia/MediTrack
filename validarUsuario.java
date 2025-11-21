@@ -1,24 +1,23 @@
 package meditrack;
-// Clase para validar usuarios
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class validarUsuario {
-    public boolean validar(String Gmail, String contrasena) {
-        if (Gmail == null || contrasena == null) {
-            return false;
+    private static final Map<String, String> usuarios = new HashMap<>();
+    static {
+        usuarios.put("analaba@gmail.com", "0422");
+        usuarios.put("kenya@gmail.com", "password");        
+        usuarios.put("kenya@gmail.com", "password");
         }
-        if (Gmail.isEmpty() || contrasena.isEmpty()) {
-            return false; 
-        }
-        return true;
+
+    public static boolean validar(String usuario, String password) {
+        if (usuario == null || password == null) return false;
+        String pw = usuarios.get(usuario);
+        return pw != null && pw.equals(password);
     }
 
-    // usuarios predefinidos para pruebas
-    public boolean autenticar(String Gmail, String contrasena) {
-        String usuario1Gmail = "lolmandere@gmail.com";
-        String usuario1Contrasena = "12345";
-        String usuario2Gmail = "pepe@gmail.com";
-        String usuario2Contrasena = "67890";
-
-        return (usuario1Gmail.equals(Gmail) && usuario1Contrasena.equals(contrasena)) ||
-                (usuario2Gmail.equals(Gmail) && usuario2Contrasena.equals(contrasena));
+    public static boolean existeUsuario(String usuario) {
+        return usuarios.containsKey(usuario);
     }
 }
