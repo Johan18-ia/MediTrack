@@ -1,20 +1,23 @@
 package meditrack;
 
-public class notificacion {
-    private String mensaje;
-    private String fechaHora;
+import java.util.HashMap;
+import java.util.Map;
 
-    public notificacion(String mensaje, String fechaHora){
-        this.mensaje = mensaje;
-        this.fechaHora = fechaHora;
+public class validarUsuario {
+    private static final Map<String, String> usuarios = new HashMap<>();
+    static {
+        usuarios.put("analaba@gmail.com", "0422");
+        usuarios.put("kenya@gmail.com", "password");        
+        usuarios.put("kenya@gmail.com", "password");
+        }
+
+    public static boolean validar(String usuario, String password) {
+        if (usuario == null || password == null) return false;
+        String pw = usuarios.get(usuario);
+        return pw != null && pw.equals(password);
     }
 
-    public String getMensaje(){return mensaje;}
-    public String getFechaHora(){return fechaHora;}
-
-    // Método para enviar notificación a un usuario
-    public void enviarAUsuario(String usuario) {
-       
-        System.out.println("Notificación para " + usuario + ": " + mensaje + " (" + fechaHora + ")");
+    public static boolean existeUsuario(String usuario) {
+        return usuarios.containsKey(usuario);
     }
 }

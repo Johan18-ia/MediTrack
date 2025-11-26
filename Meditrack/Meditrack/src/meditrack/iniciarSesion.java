@@ -1,10 +1,15 @@
 package meditrack;
 
 public class iniciarSesion {
+    // ...existing code...
     public static boolean login(String usuario, String password){
-        String usuarioCorrecto = "analaba@gmail.com";
-        String passwordCorrecto = "0422";
-        return usuario.equals(usuarioCorrecto) && password.equals(passwordCorrecto);
+        // delega la validación a validarUsuario
+        return validarUsuario.validar(usuario, password);
     }
 
+    public static void main(String[] args) {
+        boolean ok = login("analaba@gmail.com", "0422");
+        System.out.println(ok ? "Inicio de sesión exitoso." : "Inicio de sesión fallido.");
+    }
+    // ...existing code...
 }
